@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="login-wrapper">
+    <form action="/users" method="POST" class="form">
+      <img src="images/avatar.png" alt="">
+      <h2>Signup</h2>
+      <div class="input-group">
+        <input type="text" name="username" id="username" required>
+        <label for="username">User Name</label>
+      </div>
+      <div class="input-group">
+        <input type="password" name="password" id="password" required>
+        <label for="password">Password</label>
+      </div>
+      <input type="submit" value="Register" class="submit-btn-center">
+      <a href="/login" class="forgot-pw">Login</a>
+    </form>
+  </div>
+</body>
+
+</html>

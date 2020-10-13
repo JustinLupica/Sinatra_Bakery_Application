@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/698878cf66.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" />
+    <title>New Order</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+        <a href="/" class="title">Bakery</a>
+        <nav>
+            <ul>
+            <li><a href="/posts/new"  class="active">New Order</a></li>
+            <li><a href="/posts">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1 class="major">View Orders</h1>
+                <p>
+                    This page will be used to add new orders into the database
+                </p>
+            </div>
+        </section>
+        <form action="/data" method="POST">
+            <div class="field half">
+                <label class="addLabel" for="customersName">New - Customer's Name</label>
+                <input type="text" name="customersName" id="customersName" />
+                <label class="addLabel" for="phoneNumber">Phone Number</label>
+                <input type="text" name="phoneNumber" id="phoneNumber">
+            </div>
+            <button>Submit</button>
+        </form>
+        <hr>
+
+        <section class="formInputs">
+
+            <div class="field half">
+                <label for="search-input">Search Customers Below</label>
+                <div class="wrapper">
+                    <i class="fab fa-searchengin"></i>
+                    <input type="text" name="search-input" id="search-input" onkeydown="filterCustomer()" />
+                </div>
+        </section>
+        <br>
+        <table class="customerTable">
+            <thead>
+                <th onclick="sortTable()">Name</th>
+                <th>Phone Number</th>
+            </thead>
+            <tbody id="table">
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

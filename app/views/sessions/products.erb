@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://kit.fontawesome.com/698878cf66.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="header">
+        <a href="/" class="title">Bakery</a>
+        <nav>
+            <ul>
+                <li><a href="/posts/new">New Order</a></li>
+                <li><a href="/posts" class="active">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h4> Welcome, <%= session[:username] %>.</h4>
+                <h1 class="major">Products</h1>
+                <p>
+                    This page will be used to view orders that have been logged
+                    in the database. You might just be able to sort/filter orders
+                    to better find the one you are looking for. You can also create
+                    a new order by clicking on the 'New Order' button.
+                </p>
+            </div>
+        </section>
+
+        <section class="formInputs">
+            <div class="input-filters">
+                <div class="search-orders">
+                    <label for="delete-product">Enter ID of product to delete</label>
+                    <div class="wrapper">
+                        
+                       
+                    </div>
+                </div>
+                <div class="date-filter">
+                    <label for="date-filter">Filter Orders By Date</label>
+                    <input type="date" name="date-filter" id="date-filter" onchange="filterByDate()" />
+                </div>
+            </div>
+            <hr />
+        </section>
+        <table id="orderTable" class="orderLog">
+            <thead>
+                <th>ID</th>
+                <th>Product Category</th>
+                <th>Product Flavor</th>
+                <th>Product Size</th>
+                <th>Quantity</th>
+            </thead>
+            <tbody id="orderTable">
+                <% @products.each do |product| %>
+                <tr> 
+                        <td><%= product.id %> </td>
+                        <td><%= product.product_category %> </td>
+                        <td><%= product.product_flavor %> </td>
+                        <td><%= product.product_size %> </td>
+                        <td><%= product.quantity %> </td>
+                        <td><a href="/products/<%=product.id%>/edit"><i class="fas fa-external-link-square-alt"></i></a></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

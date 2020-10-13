@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Login Form Demo</title>
+</head>
+<body>
+  <div class="login-wrapper">
+    <form action="/login" method="POST" class="form">
+      <img src="images/avatar.png" alt="">
+      <h2>Login</h2>
+      <div class="input-group">
+        <input type="text" name="username" id="username" required>
+        <label for="username">User Name</label>
+      </div>
+      <div class="input-group">
+        <input type="password" name="password" id="password" required>
+        <label for="password">Password</label>
+      </div>
+      <input type="submit" value="Login" class="submit-btn">
+      <a href="/signup" class="forgot-pw">Register</a>
+    </form>
+  </div>
+</body>
+</html>
