@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/698878cf66.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" />
+    <title>Edit Product</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+</head>
+
+<body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+        <a href="/" class="title">Bakery</a>
+        <nav>
+      <ul>
+        <li><a href="/NewOrder">New Order</a></li>
+        <li><a href="/orders">Products</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1 class="major">Edit Product</h1>
+                <p>
+                    This page will be used to add new products into the database
+                </p>
+            </div>
+        </section>
+        <!-- Edit Product Form -->
+        <form action="/products" method="POST">
+            <div class="field half">
+                <label for="product_category">Product Cateogry</label>
+                    <input type="text" name="product[product_category]" id="product_category" value="<%= @product.product_category %>">
+                <label for="product_flavor">Product Flavor</label>
+                    <input type="text" name="product[product_flavor]" id="product_flavor" value="<%= @product.product_flavor %>">
+                <label for="product_size">Product Size</label>
+                    <input type="text" name="product[product_size]" id="product_size" value="<%= @product.product_size %>">
+                <label for="quantity">Quantity</label>
+                    <input type="text" name="product[quantity]" id="quantity" value="<%= @product.quantity %>">
+            </div>
+            <input type="submit" name="" value="Update Product">
+            </form>
+</body>
+
+</html>
