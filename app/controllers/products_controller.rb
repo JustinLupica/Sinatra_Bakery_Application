@@ -1,14 +1,22 @@
 class ProductsController < ApplicationController
     # INDEX
     get '/products' do
-        get_products
-        erb :'/sessions/products'
+        if !logged_in?
+            redirect '/login'
+        else
+            get_products
+            erb :'/products/products'
+        end
     end
 
     # NEW
     get '/products/new' do
         #Render a new form to create new product
-        erb :'/products/new'
+        if !logged_in?
+            redirect '/login'
+        else
+            erb :'/products/new'
+        end
     end
 
     # POST
@@ -19,23 +27,28 @@ class ProductsController < ApplicationController
     end
 
     # EDIT
-    get '/products/:id/edit'
-    #Show a form to edit the product
+    get '/products/edit/:id' do
         @product = Product.find(params[:id])
-        erb :'products/edit'
+        erb :'/products/edit'
+    end
 
     # PATCH
+    patch '/products/patch/:id' do
+        @product = Product.find(params[:id])
+        @product.update(params[:product])
+        redirect '/products'
+    end
 
      # SHOW (full product page)
      get '/products/:id' do
         @product = Product.find(params[:id])
-        erb :"/sessions/product_view_page"
+        erb :"/products/product_view_page"
     end
 
     # DELETE
-    delete "/products/:id" do
+    delete "/products/delete/:id" do
         @product = Product.find(params[:id])
         @product.destroy
-        redirect '/orders'
+        redirect '/products'
     end
 end

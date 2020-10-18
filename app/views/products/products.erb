@@ -1,32 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders</title>
-    <link rel="stylesheet" href="/stylesheets/main.css">
-    <script src="https://kit.fontawesome.com/698878cf66.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <header id="header">
-        <a href="/" class="title">Bakery</a>
-        <nav>
-            <ul>
-                <li><a href="/posts/new">New Order</a></li>
-                <li><a href="/posts" class="active">Products</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Wrapper -->
     <div id="wrapper">
         <!-- Main -->
         <section id="main" class="wrapper">
             <div class="inner">
                 <h4> Welcome, <%= session[:username] %>.</h4>
                 <h1 class="major">Products</h1>
+                <form action="/products/new">
+            <input type="submit" value="Add New Product" />
+          </form>
                 <p>
                     This page will be used to view orders that have been logged
                     in the database. You might just be able to sort/filter orders
@@ -37,21 +17,6 @@
         </section>
 
         <section class="formInputs">
-            <div class="input-filters">
-                <div class="search-orders">
-                    <label for="delete-product">Enter ID of product to delete</label>
-                    <div class="wrapper">
-                        
-                       
-                    </div>
-                </div>
-                <div class="date-filter">
-                    <label for="date-filter">Filter Orders By Date</label>
-                    <input type="date" name="date-filter" id="date-filter" onchange="filterByDate()" />
-                </div>
-            </div>
-            <hr />
-        </section>
         <table id="orderTable" class="orderLog">
             <thead>
                 <th>ID</th>
@@ -73,7 +38,5 @@
                 <% end %>
             </tbody>
         </table>
+        </section>
     </div>
-</body>
-
-</html>

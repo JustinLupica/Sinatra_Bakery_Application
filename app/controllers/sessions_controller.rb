@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         if @user
             session[:username] = @user.username
             get_products
-            erb :"sessions/products"
+            erb :"products/products"
         else
             redirect '/login'
         end

@@ -1,0 +1,22 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div class="inner">
+    <h3 class="major"><%= @customer.customer_name %></h3>
+    <p>
+      This page will be were you can view all the information about the order that was fetched from the Database.
+      You can access this page by selecting the order you would like to preview from the Order Log page.
+    </p>
+  <label for="">ID:</label><%= @customer.id %>
+  <label for="">Customers Name:</label><%= @customer.customer_name %>
+  
+  <form class="" action="/customers/delete/<%= @customer.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="Delete this customer">
+  </form>
+  <form action="/customers/edit/<%= @customer.id %>">
+    <input type="submit" value="Edit this customer" />
+  </form>
+  </div>
+</section>
+</div>

@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <script src="https://kit.fontawesome.com/698878cf66.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" />
-    <title>New Product</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-</head>
-
-<body class="is-preload">
-    <!-- Header -->
-    <header id="header">
-        <a href="/" class="title">Bakery</a>
-        <nav>
-      <ul>
-        <li><a href="/NewOrder">New Order</a></li>
-        <li><a href="/orders">Products</a></li>
-      </ul>
-    </nav>
-    </header>
-
-    <!-- Wrapper -->
     <div id="wrapper">
         <!-- Main -->
         <section id="main" class="wrapper">
@@ -35,7 +11,7 @@
         <!-- New Product Form -->
         <form action="/products" method="POST">
             <div class="field half">
-                <label for="product_category">Product Cateogry</label>
+                <label for="product_category">Product Category</label>
                     <input type="text" name="product[product_category]" id="product_category">
             
                 <label for="product_flavor">Product Flavor</label>
@@ -47,6 +23,4 @@
             </div>
             <button>Submit</button>
             </form>
-</body>
 
-</html>

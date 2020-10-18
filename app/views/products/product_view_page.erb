@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" />
-  <title>Product Preview</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-</head>
-
-<body class="is-preload">
-  <!-- Header -->
-  <header id="header">
-    <a href="/" class="title">Bakery</a>
-    <nav>
-      <ul>
-        <li><a href="/NewOrder">New Order</a></li>
-        <li><a href="/orders">Products</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Wrapper -->
   <div id="wrapper">
     <!-- Main -->
     <section id="main" class="wrapper">
@@ -36,11 +13,13 @@
       <label for="">Product Size:</label><%= @product.product_size %>
       <label for="">Quantity:</label><%= @product.quantity %>
       
-      <form class="" action="/products/<%= @product.id %>" method="post">
+      <form class="" action="/products/delete/<%= @product.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" name="" value="Delete this product">
       </form>
+      <form action="/products/edit/<%= @product.id %>">
+        <input type="submit" value="Edit this product" />
+      </form>
       </div>
     </section>
-
-</html>
+  </div>
