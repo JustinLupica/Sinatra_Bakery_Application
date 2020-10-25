@@ -1,0 +1,40 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <h4> Welcome, <%= session[:username] %>.</h4>
+        <h1 class="major">Orders</h1>
+        <form action="/orders/new">
+            <input type="submit" value="Add New Order" />
+          </form>
+        <p>
+            This page will be used to view orders that have been logged
+            in the database. You might just be able to sort/filter orders
+            to better find the one you are looking for. You can also create
+            a new order by clicking on the 'New Order' button.
+        </p>
+    </div>
+</section>
+
+<section class="formInputs">
+<table id="orderTable" class="orderLog">
+    <thead>
+        <th>ID</th>
+        <th>Customer Name</th>
+        <th>Product Ordered</th>
+        <th>Date Taken</th>
+    </thead>
+    <tbody id="orderTable">
+        <% @order.each do |order| %>
+        <tr> 
+                <td><%= order.id %> </td>
+                <td><%= order.customer_id %> </td>
+                <td><%= order.product_ordered %> </td>
+                <td><%= order.created_at %> </td>
+                <td><a href="/orders/<%=order.id%>"><i class="fas fa-external-link-square-alt"></i></a></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</section>
+</div>

@@ -1,0 +1,33 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <h4> Welcome, <%= session[:username] %>.</h4>
+        <h1 class="major">Select A Customer</h1>
+        <form action="/customers/new">
+            <input type="submit" value="Add New Customer" />
+          </form>
+        <p>
+            This page will allow you to be able to select an already existing customer when creating new orders.
+        </p>
+    </div>
+</section>
+
+<section class="formInputs">
+<table id="orderTable" class="orderLog">
+    <thead>
+        <th>ID</th>
+        <th>Customer Name</th>
+    </thead>
+    <tbody id="orderTable">
+        <% @customer.each do |customer| %>
+        <tr> 
+                <td><%= customer.id %> </td>
+                <td><%= customer.customer_name %> </td>
+                <td><a href="/customers/select/<%=customer.id%>"><i class="fal fa-user-check"></i></a></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</section>
+</div>

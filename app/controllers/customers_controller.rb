@@ -6,6 +6,11 @@ class CustomersController < ApplicationController
         erb :'/customers/customers'
     end
 
+    get '/customers/select' do
+        @customer = Customer.all
+        erb :'/customers/customer_select'
+    end
+
     # NEW
     get '/customers/new' do
         #Render a new form to create new product
@@ -17,6 +22,11 @@ class CustomersController < ApplicationController
         #Create a new article instance and save to db.
         @customer = Customer.create(params[:customer])
         redirect '/customers'
+    end
+
+    get '/customers/select/:id' do
+        @customer = Customer.find(params[:id])
+        redirect '/orders/new'
     end
 
     

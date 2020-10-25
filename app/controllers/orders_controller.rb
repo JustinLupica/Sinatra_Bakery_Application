@@ -1,34 +1,49 @@
 class OrdersController < ApplicationController
 
-    get '/orders' do
-        erb :"sessions/orders"
-    end
-
-    get '/orders/new' do
-        #Checking if they are logged in
-        if !session[:email]
-            redirect '/login' #Redirect if not logged in
-        else
-            erb :"sessions/new_order"
+        #Index all customers into a table
+        get '/orders' do
+            @order = Order.all
+            erb :'/orders/orders'
         end
-    end
-
-    post '/order/new' do
-        # Create a new order instance with information from the user
-        @order = Order.new
-        @order.product_id = params[:product_id]
-        @order.pickup_date = params[:pickup_date]
-    end
-
-    get '/orders/:id/edit' do 
-        if !logged_in?
-            redirect '/login' #Redirect if not logged in
-        else
-           if order = current_user.orders.find_by(params[:id])
-            "An edit order form #{current_user.id} is editing #{order.id}."
-           else
+    
+        # NEW
+        get '/orders/new' do
+            #Render a new form to create new product
+            
+            erb :'/orders/new'
+        end
+    
+        # POST
+        post '/orders' do 
+            #Create a new article instance and save to db.
+            @orders = Orders.create(params[:orders])
             redirect '/orders'
-           end
         end
-    end
+    
+        
+        #show a specific customers info page
+        get '/orders/:id' do
+            @order = Order.find(params[:id])
+            erb :"/orders/order_view_page"
+        end
+    
+        # EDIT
+        get '/orders/edit/:id' do
+            @order = Order.find(params[:id])
+            erb :'/orders/edit'
+        end
+    
+        # PATCH
+        patch '/orders/patch/:id' do
+            @orders = Orders.find(params[:id])
+            @orders.update(params[:id])
+            redirect '/orders'
+        end
+    
+        # DELETE
+        delete "/orders/delete/:id" do
+            @orders = Orders.find(params[:id])
+            @orders.destroy
+            redirect '/orders'
+        end
 end

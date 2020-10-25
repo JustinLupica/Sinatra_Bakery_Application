@@ -1,22 +1,15 @@
 class ProductsController < ApplicationController
     # INDEX
     get '/products' do
-        if !logged_in?
-            redirect '/login'
-        else
             get_products
             erb :'/products/products'
-        end
+        
     end
 
     # NEW
     get '/products/new' do
         #Render a new form to create new product
-        if !logged_in?
-            redirect '/login'
-        else
             erb :'/products/new'
-        end
     end
 
     # POST

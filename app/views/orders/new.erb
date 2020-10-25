@@ -1,0 +1,23 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <h1 class="major">New Customer</h1>
+        <p>
+            This page will be used to add new customers into the database
+        </p>
+    </div>
+</section>
+<!-- New Product Form -->
+    <div class="field half">
+    <form action="/customers/select">
+    <input type="submit" value="Select A Customer" />
+    </form>
+        <% if @customer %>
+            <label for="customers_name"><%= @customer.customer_name %></label>
+            <input type="text" name="customer[customer_name]" id="customers_name">
+            <button>Submit</button>
+        <% else %>
+        <% end %>
+    </div>
+

@@ -26,15 +26,16 @@ class ApplicationController < Sinatra::Base
         @products = Product.all 
       end
       
-      def login(username, password)
-          #check if a user with this email actually exists
-          @user = User.find(params[:username] => username)
-          if user && user.authenticate(password)
-          session[:username] = @user.username
-          else
-              redirect '/login'
-          end
-      end
+      # def login(username, password)
+      #     #check if a user with this email actually exists
+      #     @user = User.find(params[:username] => username)
+      #     if user && user.authenticate(params[:password]lj 
+      #       )
+      #     session[:username] = @user.username
+      #     else
+      #         redirect '/login'
+      #     end
+      # end
 
       def logout
           session.clear

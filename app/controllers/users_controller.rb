@@ -8,7 +8,8 @@ class UsersController < ApplicationController
         @user.username = params[:username]
         @user.password = params[:password]
         if @user.save
-        redirect '/login'
+            session[:username] = @user.username
+        redirect '/products'
     else
         erb :"users/new_user"
     end

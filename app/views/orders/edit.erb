@@ -1,0 +1,23 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div class="inner">
+    <h3 class="major">Update: <%= @order.id %></h3>
+    <p>
+      This page will be were you can veiw all the information about the order that was fetched from the Database.
+      You can access this page by selecting the order you would like to preview from the Order Log page.
+    </p>
+  <label for="">ID:</label><%= @order.id %>
+
+  <form action="/products/patch/<%= @order.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <label for="">Customer ID:</label>
+    <input type="text" name="order[customer_id]" value="<%= @order.customer_id %>">
+  <label for="">Product Ordered:</label>
+    <input type="text" name="order[product_ordered]" value="<%= @order.product_ordered %>">
+  <label for="">Date Taken:</label>
+    <input type="text" name="order[created_at]" value="<%= @order.created_at %>">.
+    
+    </form>
+  </div>
+</section>

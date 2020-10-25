@@ -1,0 +1,24 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div class="inner">
+    <h3 class="major"><%= @order.id %></h3>
+    <p>
+      This page will be were you can view all the information about the order that was fetched from the Database.
+      You can access this page by selecting the order you would like to preview from the Order Log page.
+    </p>
+  <label for="">ID:</label><%= @order.id %>
+  <label for="">Customer ID:</label><%= @order.customer_id %>
+  <label for="">Product Ordered ID:</label><%= @order.product_ordered %>
+  <label for="">Date Taken:</label><%= @order.created_at %>
+  
+  <form class="" action="/orders/delete/<%= @order.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="Delete this order">
+  </form>
+  <form action="/orders/edit/<%= @order.id %>">
+    <input type="submit" value="Edit this order" />
+  </form>
+  </div>
+</section>
+</div>
