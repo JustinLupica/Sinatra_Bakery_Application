@@ -16,7 +16,9 @@ class OrdersController < ApplicationController
         # POST
         post '/orders' do 
             #Create a new article instance and save to db.
-            @orders = Orders.create(params[:orders])
+            customer = @customer.id
+            @orders = Order.create(params[:order])
+            
             redirect '/orders'
         end
     
@@ -35,14 +37,14 @@ class OrdersController < ApplicationController
     
         # PATCH
         patch '/orders/patch/:id' do
-            @orders = Orders.find(params[:id])
-            @orders.update(params[:id])
+            @order = Order.find(params[:id])
+            @order.update(params[:order])
             redirect '/orders'
         end
     
         # DELETE
         delete "/orders/delete/:id" do
-            @orders = Orders.find(params[:id])
+            @orders = Order.find(params[:id])
             @orders.destroy
             redirect '/orders'
         end

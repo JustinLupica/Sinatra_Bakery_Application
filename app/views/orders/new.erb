@@ -2,9 +2,9 @@
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="inner">
-        <h1 class="major">New Customer</h1>
+        <h1 class="major">New Order</h1>
         <p>
-            This page will be used to add new customers into the database
+            This page will be used to add new orders into the database
         </p>
     </div>
 </section>
@@ -13,11 +13,14 @@
     <form action="/customers/select">
     <input type="submit" value="Select A Customer" />
     </form>
+    <form action="/orders" method="POST">
         <% if @customer %>
-            <label for="customers_name"><%= @customer.customer_name %></label>
-            <input type="text" name="customer[customer_name]" id="customers_name">
+            <label>Customer Selected: <%= @customer.customer_name %></label>
+            <label>Product ID:</label>
+            <input type="text" name="order[product_id]" id="product_id">
             <button>Submit</button>
         <% else %>
         <% end %>
+        </form>
     </div>
 

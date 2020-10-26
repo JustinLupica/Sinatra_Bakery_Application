@@ -26,7 +26,7 @@ class CustomersController < ApplicationController
 
     get '/customers/select/:id' do
         @customer = Customer.find(params[:id])
-        redirect '/orders/new'
+        erb :'/orders/new'
     end
 
     
