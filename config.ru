@@ -8,6 +8,7 @@ use SessionsController
 use ProductsController
 use OrdersController
 use UsersController
+use PostsController
 use CustomersController
 use Rack::MethodOverride
 run ApplicationController

@@ -2,19 +2,31 @@ class CustomersController < ApplicationController
 
     #Index all customers into a table
     get '/customers' do
-        @customer = Customer.all
-        erb :'/customers/customers'
+        if logged_in?
+            @customer = Customer.all
+            erb :'/customers/customers'
+        else
+            redirect '/login'
+        end
     end
 
     get '/customers/select' do
-        @customer = Customer.all
-        erb :'/customers/customer_select'
+        if logged_in?
+            @customer = Customer.all
+            erb :'/customers/customer_select'
+        else
+            redirect '/login'
+        end
     end
 
     # NEW
     get '/customers/new' do
-        #Render a new form to create new product
-        erb :'/customers/new'
+        if logged_in?
+            #Render a new form to create new product
+            erb :'/customers/new'
+        else
+            redirect '/login'
+        end
     end
 
     # POST
@@ -25,21 +37,33 @@ class CustomersController < ApplicationController
     end
 
     get '/customers/select/:id' do
-        @customer = Customer.find(params[:id])
-        erb :'/orders/new'
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :'/orders/new'
+        else
+            redirect '/login'
+        end
     end
 
     
     #show a specific customers info page
     get '/customers/:id' do
-        @customer = Customer.find(params[:id])
-        erb :"/customers/customer_view_page"
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :"/customers/customer_view_page"
+        else
+            redirect '/login'
+        end
     end
 
     # EDIT
     get '/customers/edit/:id' do
-        @customer = Customer.find(params[:id])
-        erb :'/customers/edit'
+        if logged_in?
+            @customer = Customer.find(params[:id])
+            erb :'/customers/edit'
+        else
+            redirect '/login'
+        end
     end
 
     # PATCH

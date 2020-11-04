@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201025154715) do
+ActiveRecord::Schema.define(version: 20201104160144) do
 
   create_table "customers", force: :cascade do |t|
-    t.string "customer_name"
+    t.string  "customer_name"
+    t.integer "order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -22,6 +23,12 @@ ActiveRecord::Schema.define(version: 20201025154715) do
     t.integer  "product_ordered"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string  "title"
+    t.text    "content"
+    t.integer "user_id"
   end
 
   create_table "products", force: :cascade do |t|

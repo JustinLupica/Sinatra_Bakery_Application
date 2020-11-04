@@ -2,15 +2,22 @@ class OrdersController < ApplicationController
 
         #Index all customers into a table
         get '/orders' do
-            @order = Order.all
-            erb :'/orders/orders'
+            if logged_in?
+                @order = Order.all
+                erb :'/orders/orders'
+            else
+                redirect '/login'
+            end
         end
     
         # NEW
         get '/orders/new' do
-            #Render a new form to create new product
-            
-            erb :'/orders/new'
+            if logged_in?
+                 #Render a new form to create new product
+                 erb :'/orders/new'
+            else
+                redirect '/login'
+            end
         end
     
         # POST
@@ -25,14 +32,34 @@ class OrdersController < ApplicationController
         
         #show a specific customers info page
         get '/orders/:id' do
-            @order = Order.find(params[:id])
-            erb :"/orders/order_view_page"
+            if logged_in?
+                @order = Order.find(params[:id])
+                erb :"/orders/order_view_page"
+            else
+                redirect '/login'
+            end
         end
+
+        ###### --- TEST ROUTE ---- #####
+
+        get '/orders/:id/edit' do
+               if order = current_customer.orders.find_by(params[:id])
+                    "A edit order form - Customer #{current_customer.id} is editing their order #{order.id}"
+                else
+                redirect '/login'
+                end
+        end
+
+        ########################
     
         # EDIT
         get '/orders/edit/:id' do
-            @order = Order.find(params[:id])
-            erb :'/orders/edit'
+            if logged_in?
+                @order = Order.find(params[:id])
+                erb :'/orders/edit'
+            else
+                redirect '/login'
+            end
         end
     
         # PATCH

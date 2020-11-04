@@ -5,14 +5,9 @@ class SessionsController < ApplicationController
     end
 
     post "/login" do
-        @user = User.find_by(username: params[:username])
-        
-        if @user && @user.authenticate(params[:password])
-        session[:username] = @user.username
-          redirect "/products"
-        else
-            redirect '/login'
-      end
+        #login a user with this email
+        login(params[:username], params[:password])
+        redirect '/products'
     end
 
     # post '/login' do
