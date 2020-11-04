@@ -9,6 +9,10 @@
     </p>
   <label for="">ID:</label><%= @customer.id %>
   <label for="">Customers Name:</label><%= @customer.customer_name %>
+  <label for="">Orders Placed:</label><%= @customer.orders.count %>
+  <label for="">Order ID:</label><%= @customer.orders.first.id %>
+
+
   
   <form class="" action="/customers/delete/<%= @customer.id %>" method="post">
   <input type="hidden" name="_method" value="delete">

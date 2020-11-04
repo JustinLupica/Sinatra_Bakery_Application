@@ -40,8 +40,10 @@ class ProductsController < ApplicationController
     # PATCH
     patch '/products/patch/:id' do
         @product = Product.find(params[:id])
-        @product.update(params[:product])
-        redirect '/products'
+        if @product.update(params[:product])
+            redirect '/products'
+        else
+            
     end
 
      # SHOW (full product page)
