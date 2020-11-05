@@ -23,10 +23,13 @@ class OrdersController < ApplicationController
         # POST
         post '/orders' do 
             #Create a new article instance and save to db.
-            customer = @customer.id
-            @orders = Order.create(params[:order])
-            
-            redirect '/orders'
+            @order = Order.create(params[:order])
+            @order.customer = @current_customer
+            if @order.save           
+                redirect '/orders'
+            else
+                redirect '/login'
+            end
         end
     
         

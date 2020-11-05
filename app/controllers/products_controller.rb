@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
         else
             redirect '/login'
         end
-        
     end
 
     # NEW
@@ -40,10 +39,8 @@ class ProductsController < ApplicationController
     # PATCH
     patch '/products/patch/:id' do
         @product = Product.find(params[:id])
-        if @product.update(params[:product])
-            redirect '/products'
-        else
-            
+        @product.update(params[:product])
+        redirect '/products'
     end
 
      # SHOW (full product page)

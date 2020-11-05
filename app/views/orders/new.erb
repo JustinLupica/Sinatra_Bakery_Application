@@ -15,12 +15,14 @@
     </form>
     <form action="/orders" method="POST">
         <% if @customer %>
-            <label>Customer Selected: <%= @customer.customer_name %></label>
+            <label>Customer Selected:</label>
+            <input type="text" name="customer" value=<%= @customer.customer_name %>>
             <label>Product ID:</label>
             <input type="text" name="order[product_id]" id="product_id">
             <button>Submit</button>
         <% else %>
         <% end %>
         </form>
+
     </div>
 

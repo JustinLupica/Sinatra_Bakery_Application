@@ -9,7 +9,7 @@
     </p>
   <label for="">ID:</label><%= @order.id %>
   <label for="">Customer ID:</label><%= @order.customer_id %>
-  <label for="">Product Ordered ID:</label><%= @order.product_ordered %>
+  <label for="">Product Ordered ID:</label><%= @order.product_id %>
   <label for="">Date Taken:</label><%= @order.created_at %>
   
   <form class="" action="/orders/delete/<%= @order.id %>" method="post">

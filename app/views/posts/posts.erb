@@ -1,0 +1,34 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <h4> Welcome, <%= session[:username] %>.</h4>
+        <h1 class="major">Your Posts</h1>
+        <form action="/posts/new">
+            <input type="submit" value="Add New Post" />
+          </form>
+    </div>
+</section>
+
+<section class="formInputs">
+<table id="orderTable" class="orderLog">
+    <thead>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Author</th>
+    </thead>
+    <tbody id="orderTable">
+        <% @post.each do |post| %>
+        <tr> 
+                <td><%= post.id %> </td>
+                <td><%= post.title %> </td>
+                <td><%= post.content %> </td>
+                <td><%= post.user.username %> </td>
+                <td><a href="/posts/<%=post.id%>"><i class="fas fa-external-link-square-alt"></i></a></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</section>
+</div>
