@@ -23,8 +23,8 @@ class OrdersController < ApplicationController
         # POST
         post '/orders' do 
             #Create a new article instance and save to db.
-            @order = Order.create(params[:order])
-            @order.customer = @current_customer
+            current_customer = Customer.find(params[:id])
+            @order = current_customer.orders.create(params[:product])
             if @order.save           
                 redirect '/orders'
             else
@@ -45,13 +45,13 @@ class OrdersController < ApplicationController
 
         ###### --- TEST ROUTE ---- #####
 
-        get '/orders/:id/edit' do
-               if order = current_customer.orders.find_by(params[:id])
-                    "A edit order form - Customer #{current_customer.id} is editing their order #{order.id}"
-                else
-                redirect '/login'
-                end
-        end
+        # get '/orders/:id/edit' do
+        #        if order = current_customer.orders.find_by(params[:id])
+        #             "A edit order form - Customer #{current_customer.id} is editing their order #{order.id}"
+        #         else
+        #         redirect '/login'
+        #         end
+        # end
 
         ########################
     

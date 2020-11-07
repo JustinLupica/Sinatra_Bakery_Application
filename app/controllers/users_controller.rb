@@ -10,8 +10,8 @@ class UsersController < ApplicationController
         if @user.save
             session[:username] = @user.username
         redirect '/products'
-    else
+        else
         erb :"users/new_user"
+        end
     end
-end
 end

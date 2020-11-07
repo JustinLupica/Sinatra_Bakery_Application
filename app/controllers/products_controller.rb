@@ -59,4 +59,5 @@ class ProductsController < ApplicationController
         @product.destroy
         redirect '/products'
     end
+
 end
