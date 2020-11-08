@@ -22,8 +22,12 @@ class ProductsController < ApplicationController
     # POST
     post '/products' do 
         #Create a new article instance and save to db.
-            @product = Product.create(params[:product])
+            @product = Product.new(params[:product])
+            if @product.save
              redirect '/products'
+            else
+                redirect '/login'
+            end
     end
 
     # EDIT
@@ -39,8 +43,11 @@ class ProductsController < ApplicationController
     # PATCH
     patch '/products/patch/:id' do
         @product = Product.find(params[:id])
-        @product.update(params[:product])
-        redirect '/products'
+        if @product.update(params[:product])
+            redirect '/products'
+        else
+            redirect '/login'
+        end
     end
 
      # SHOW (full product page)

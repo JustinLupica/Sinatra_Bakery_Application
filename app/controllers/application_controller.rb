@@ -13,7 +13,6 @@ class ApplicationController < Sinatra::Base
   helpers do
 
       def logged_in?
-          #!!session[:username]
           !!current_user
       end
 
@@ -30,10 +29,6 @@ class ApplicationController < Sinatra::Base
       def current_user
         @current_user ||= User.find_by(:username => session[:username]) if session[:username]
       end
-
-      # def current_customer(id)
-      #   @current_customer = Customer.find_by(:id => id)
-      # end
 
       def get_products
         @products = Product.all 
