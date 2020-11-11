@@ -1,0 +1,17 @@
+<div id="wrapper">
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div class="inner">
+    <h3 class="major">Update: <%= @customer.customer_name %></h3>
+    <label for="">ID:</label><%= @customer.id %>
+
+  <form action="/customers/patch/<%= @customer.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <label for="">Customer Name:</label>
+    <input type="text" name="customer[customer_name]" value="<%= @customer.customer_name %>">
+    <label for="">Order(s) ID:</label><%= @customer.orders.count %>
+    <br>
+    <input type="submit" name="" value="Update this product">
+    </form>
+  </div>
+</section>
